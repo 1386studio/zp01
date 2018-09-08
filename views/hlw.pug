@@ -1,71 +1,7 @@
 extends layout
 
 block content
-  div(style="background-color: #ededed;border-bottom: 1px solid #dadada;")
-    .layui-container
-      .layui-row
-        .layui-col-md12
-          .nav-top
-            a(href="#") 门户
-            a.pull-right(href="#")
-              i.layui-icon.layui-icon-username 
-              | 注册 / 登录
-  div(style="background:#fff;")
-    .layui-container
-      .layui-row
-        .layui-col-md12
-          .header-top
-            .layui-row
-              .layui-col-md4
-                a.logo(href="#")
-                  img(src="/images/logo.png", alt="", srcset="")
-                .intro
-                  p 传播复兴中华的思想
-                  p 做理性的爱国者
-              .layui-col-md5
-                form.layui-form.blog-seach.pull-left
-                  .layui-form-item.blog-sewrap
-                      .layui-input-block.blog-sebox
-                        i.layui-icon.layui-icon-search
-                        input.layui-input(type="text" name="title" lay-verify="title" autocomplete="off")
-              .layui-col-md3.shortcuts
-                a(href="#")
-                  img(src="/images/i1.png", alt="", srcset="")
-                  span 快捷
-                a(href="#")
-                  img(src="/images/i2.png", alt="", srcset="")
-                  span 快捷
-                a(href="#")
-                  img(src="/images/i3.png", alt="", srcset="")
-                  span 快捷
-                a(href="#")
-                  img(src="/images/i4.png", alt="", srcset="")
-                  span 快捷
-                
-  div(style="background: #d42222;")
-    .layui-container
-      .layui-row
-        .layui-col-md12
-          .nav-list
-            ul 
-              li
-                h3
-                  a(href="#") 中国
-                a(href="#") 中国
-                a(href="#") 中国
-              li
-                h3
-                  a(href="#") 中国
-                a(href="#") 中国
-                a(href="#") 中国
-  div(style="background-color: #fafafa;border-bottom: 1px solid #ebebeb;")
-    .layui-container
-      .layui-row
-        .layui-col-md12
-          .nav-top
-            a(href="#")
-              i.layui-icon.layui-icon-notice 
-              | 重要通知：热天热公尺高的
+  include header
   .layui-container
     .jrtt
       .toutiao

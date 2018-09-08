@@ -1,678 +1,608 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    title 基于 layui 的极简社区页面模版
-    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    meta(name='keywords', content='fly,layui,前端社区')
-    meta(name='description', content='Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力')
-    link(rel='stylesheet', href='/layui/css/layui.css')
-    link(rel='stylesheet', href='/res/css/global.css')
-  body
-    .fly-header.layui-bg-black
-      .layui-container
-        a.fly-logo(href='/')
-          img(src='/res/images/logo.png', alt='layui')
-        ul.layui-nav.fly-nav.layui-hide-xs
-          li.layui-nav-item.layui-this
-            a(href='/')
-              i.iconfont.icon-jiaoliu
-              | 交流
-          li.layui-nav-item
-            a(href='case/case.html')
-              i.iconfont.icon-iconmingxinganli
-              | 案例
-          li.layui-nav-item
-            a(href='http://www.layui.com/', target='_blank')
-              i.iconfont.icon-ui
-              | 框架
-        ul.layui-nav.fly-nav-user
-          // 未登入的状态
-          li.layui-nav-item
-            a.iconfont.icon-touxiang.layui-hide-xs(href='user/login.html')
-          li.layui-nav-item
-            a(href='user/login.html') 登入
-          li.layui-nav-item
-            a(href='user/reg.html') 注册
-          li.layui-nav-item.layui-hide-xs
-            a.iconfont.icon-qq(href='/app/qq/', onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})", title='QQ登入')
-          li.layui-nav-item.layui-hide-xs
-            a.iconfont.icon-weibo(href='/app/weibo/', onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})", title='微博登入')
-          // 登入后的状态
-          //
-            <li class="layui-nav-item">
-            <a class="fly-nav-avatar" href="javascript:;">
-            <cite class="layui-hide-xs">贤心</cite>
-            <i class="iconfont icon-renzheng layui-hide-xs" title="认证信息：layui 作者"></i>
-            <i class="layui-badge fly-badge-vip layui-hide-xs">VIP3</i>
-            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
-            </a>
-            <dl class="layui-nav-child">
-            <dd><a href="user/set.html"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
-            <dd><a href="user/message.html"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息</a></dd>
-            <dd><a href="user/home.html"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
-            <hr style="margin: 5px 0;">
-            <dd><a href="/user/logout/" style="text-align: center;">退出</a></dd>
-            </dl>
-            </li>
-    .fly-panel.fly-column
-      .layui-container
-        ul.layui-clear
-          li.layui-hide-xs.layui-this
-            a(href='/') 首页
-          li
-            a(href='jie/index.html') 提问
-          li
-            a(href='jie/index.html')
-              | 分享
-              span.layui-badge-dot
-          li
-            a(href='jie/index.html') 讨论
-          li
-            a(href='jie/index.html') 建议
-          li
-            a(href='jie/index.html') 公告
-          li
-            a(href='jie/index.html') 动态
-          li.layui-hide-xs.layui-hide-sm.layui-show-md-inline-block
-            span.fly-mid
-          // 用户登入后显示
-          li.layui-hide-xs.layui-hide-sm.layui-show-md-inline-block
-            a(href='user/index.html') 我发表的贴
-          li.layui-hide-xs.layui-hide-sm.layui-show-md-inline-block
-            a(href='user/index.html#collection') 我收藏的贴
-        .fly-column-right.layui-hide-xs
-          span.fly-search
-            i.layui-icon 
-          a.layui-btn(href='jie/add.html') 发表新帖
-        .layui-hide-sm.layui-show-xs-block(style='margin-top: -10px; padding-bottom: 10px; text-align: center;')
-          a.layui-btn(href='jie/add.html') 发表新帖
+extends layout
+block content
+  .fly-panel.fly-column
     .layui-container
-      .layui-row.layui-col-space15
-        .layui-col-md8
-          .fly-panel
-            .fly-panel-title.fly-filter
-              a 置顶
-              a#LAY_goSignin.layui-hide-sm.layui-show-xs-block.fly-right(href='#signin', style='color: #FF5722;') 去签到
-            ul.fly-list
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    i.iconfont.icon-renzheng(title='认证信息：XXX')
-                    i.layui-badge.fly-badge-vip VIP3
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  span.layui-badge.fly-badge-accept.layui-hide-xs 已结
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
+      ul.layui-clear
+        li.layui-hide-xs.layui-this
+          a(href='/') 首页
+        li
+          a(href='jie/index.html') 提问
+        li
+          a(href='jie/index.html')
+            | 分享
+            span.layui-badge-dot
+        li
+          a(href='jie/index.html') 讨论
+        li
+          a(href='jie/index.html') 建议
+        li
+          a(href='jie/index.html') 公告
+        li
+          a(href='jie/index.html') 动态
+        li.layui-hide-xs.layui-hide-sm.layui-show-md-inline-block
+          span.fly-mid
+        // 用户登入后显示
+        li.layui-hide-xs.layui-hide-sm.layui-show-md-inline-block
+          a(href='user/index.html') 我发表的贴
+        li.layui-hide-xs.layui-hide-sm.layui-show-md-inline-block
+          a(href='user/index.html#collection') 我收藏的贴
+  .layui-container
+    .layui-row.layui-col-space15
+      .layui-col-md8
+        .fly-panel
+          .fly-panel-title.fly-filter
+            a 置顶
+            a#LAY_goSignin.layui-hide-sm.layui-show-xs-block.fly-right(href='#signin', style='color: #FF5722;') 去签到
+          ul.fly-list
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
+                  cite 贤心
+                  i.iconfont.icon-renzheng(title='认证信息：XXX')
+                  i.layui-badge.fly-badge-vip VIP3
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                span.layui-badge.fly-badge-accept.layui-hide-xs 已结
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                //
+                  <span class="layui-badge layui-bg-black">置顶</span>
+                  <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 公告
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
+                  cite 贤心
                   //
-                    <span class="layui-badge layui-bg-black">置顶</span>
-                    <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 公告
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 2017-11-30
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 2017-11-30
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                //
+                  <span class="layui-badge layui-bg-black">置顶</span>
+                  <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 公告
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
+                  cite 贤心
                   //
-                    <span class="layui-badge layui-bg-black">置顶</span>
-                    <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 公告
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                //
+                  <span class="layui-badge layui-bg-black">置顶</span>
+                  <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 公告
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
+                  cite 贤心
                   //
-                    <span class="layui-badge layui-bg-black">置顶</span>
-                    <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 公告
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  //
-                    <span class="layui-badge layui-bg-black">置顶</span>
-                    <span class="layui-badge layui-bg-red">精帖</span>
-          .fly-panel(style='margin-bottom: 0;')
-            .fly-panel-title.fly-filter
-              a.layui-this(href='') 综合
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                //
+                  <span class="layui-badge layui-bg-black">置顶</span>
+                  <span class="layui-badge layui-bg-red">精帖</span>
+        .fly-panel(style='margin-bottom: 0;')
+          .fly-panel-title.fly-filter
+            a.layui-this(href='') 综合
+            span.fly-mid
+            a(href='') 未结
+            span.fly-mid
+            a(href='') 已结
+            span.fly-mid
+            a(href='') 精华
+            span.fly-filter-right.layui-hide-xs
+              a.layui-this(href='') 按最新
               span.fly-mid
-              a(href='') 未结
-              span.fly-mid
-              a(href='') 已结
-              span.fly-mid
-              a(href='') 精华
-              span.fly-filter-right.layui-hide-xs
-                a.layui-this(href='') 按最新
-                span.fly-mid
-                a(href='') 按热议
-            ul.fly-list
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 分享
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    // <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                    i.layui-badge.fly-badge-vip VIP3
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  span.layui-badge.fly-badge-accept.layui-hide-xs 已结
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  span.layui-badge.layui-bg-red 精帖
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-              li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
-                h2
-                  a.layui-badge 动态
-                  a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-                .fly-list-info
-                  a(href='user/home.html', link='')
-                    cite 贤心
-                    //
-                      <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                      <i class="layui-badge fly-badge-vip">VIP3</i>
-                  span 刚刚
-                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
-                    i.iconfont.icon-kiss
-                    |  60
-                  // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
-                  span.fly-list-nums
-                    i.iconfont.icon-pinglun1(title='回答')
-                    |  66
-                .fly-list-badge
-                  // <span class="layui-badge layui-bg-red">精帖</span>
-            div(style='text-align: center')
-              .laypage-main
-                a.laypage-next(href='jie/index.html') 更多求解
-        .layui-col-md4
-          .fly-panel
-            h3.fly-panel-title 温馨通道
-            ul.fly-panel-main.fly-list-static
-              li
-                a(href='http://fly.layui.com/jie/4281/', target='_blank') layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star
-              li
-                a(href='http://fly.layui.com/jie/5366/', target='_blank')
-                  | layui 常见问题的处理和实用干货集锦
-              li
-                a(href='http://fly.layui.com/jie/4281/', target='_blank') layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star
-              li
-                a(href='http://fly.layui.com/jie/5366/', target='_blank')
-                  | layui 常见问题的处理和实用干货集锦
-              li
-                a(href='http://fly.layui.com/jie/4281/', target='_blank') layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star
-          .fly-panel.fly-signin
-            .fly-panel-title
-              | 签到
-              i.fly-mid
-              a#LAY_signinHelp.fly-link(href='javascript:;') 说明
-              i.fly-mid
-              a#LAY_signinTop.fly-link(href='javascript:;')
-                | 活跃榜
-                span.layui-badge-dot
-              span.fly-signin-days
-                | 已连续签到
-                cite 16
-                | 天
-            .fly-panel-main.fly-signin-main
-              button#LAY_signin.layui-btn.layui-btn-danger 今日签到
-              span
-                | 可获得
-                cite 5
-                | 飞吻
-              // 已签到状态
-              //
-                <button class="layui-btn layui-btn-disabled">今日已签到</button>
-                <span>获得了<cite>20</cite>飞吻</span>
-          #LAY_replyRank.fly-panel.fly-rank.fly-rank-reply
-            h3.fly-panel-title 回贴周榜
-            dl
-              // <i class="layui-icon fly-loading">&#xe63d;</i>
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+              a(href='') 按热议
+          ul.fly-list
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 分享
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  // <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                  i.layui-badge.fly-badge-vip VIP3
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                span.layui-badge.fly-badge-accept.layui-hide-xs 已结
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                span.layui-badge.layui-bg-red 精帖
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-              dd
-                a(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+            li
+              a.fly-avatar(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+              h2
+                a.layui-badge 动态
+                a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+              .fly-list-info
+                a(href='user/home.html', link='')
                   cite 贤心
-                  i 106次回答
-          dl.fly-panel.fly-list-one
-            dt.fly-panel-title 本周热议
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            dd
-              a(href='jie/detail.html') 基于 layui 的极简社区页面模版
-              span
-                i.iconfont.icon-pinglun1
-                |  16
-            // 无数据时
+                  //
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                span 刚刚
+                span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                  i.iconfont.icon-kiss
+                  |  60
+                // <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                span.fly-list-nums
+                  i.iconfont.icon-pinglun1(title='回答')
+                  |  66
+              .fly-list-badge
+                // <span class="layui-badge layui-bg-red">精帖</span>
+          div(style='text-align: center')
+            .laypage-main
+              a.laypage-next(href='jie/index.html') 更多求解
+      .layui-col-md4
+        .fly-panel
+          h3.fly-panel-title 温馨通道
+          ul.fly-panel-main.fly-list-static
+            li
+              a(href='http://fly.layui.com/jie/4281/', target='_blank') layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star
+            li
+              a(href='http://fly.layui.com/jie/5366/', target='_blank')
+                | layui 常见问题的处理和实用干货集锦
+            li
+              a(href='http://fly.layui.com/jie/4281/', target='_blank') layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star
+            li
+              a(href='http://fly.layui.com/jie/5366/', target='_blank')
+                | layui 常见问题的处理和实用干货集锦
+            li
+              a(href='http://fly.layui.com/jie/4281/', target='_blank') layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star
+        .fly-panel.fly-signin
+          .fly-panel-title
+            | 签到
+            i.fly-mid
+            a#LAY_signinHelp.fly-link(href='javascript:;') 说明
+            i.fly-mid
+            a#LAY_signinTop.fly-link(href='javascript:;')
+              | 活跃榜
+              span.layui-badge-dot
+            span.fly-signin-days
+              | 已连续签到
+              cite 16
+              | 天
+          .fly-panel-main.fly-signin-main
+            button#LAY_signin.layui-btn.layui-btn-danger 今日签到
+            span
+              | 可获得
+              cite 5
+              | 飞吻
+            // 已签到状态
             //
-              <div class="fly-none">没有相关数据</div>
-          .fly-panel
-            .fly-panel-title
-              | 这里可作为广告区域
-            .fly-panel-main
-              a.fly-zanzhu(href='http://layim.layui.com/?from=fly', target='_blank', time-limit='2017.09.25-2099.01.01', style='background-color: #5FB878;') LayIM 3.0 - layui 旗舰之作
-          .fly-panel.fly-link
-            h3.fly-panel-title 友情链接
-            dl.fly-panel-main
-              dd
-                a(href='http://www.layui.com/', target='_blank') layui
-              dd
-              dd
-                a(href='http://layim.layui.com/', target='_blank') WebIM
-              dd
-              dd
-                a(href='http://layer.layui.com/', target='_blank') layer
-              dd
-              dd
-                a(href='http://www.layui.com/laydate/', target='_blank') layDate
-              dd
-              dd
-                a.fly-link(href='mailto:xianxin@layui-inc.com?subject=%E7%94%B3%E8%AF%B7Fly%E7%A4%BE%E5%8C%BA%E5%8F%8B%E9%93%BE') 申请友链
-              dd
-    .fly-footer
-      p
-        a(href='http://fly.layui.com/', target='_blank') Fly社区
-        |  2017 © 
-        a(href='http://www.layui.com/', target='_blank') layui.com 出品
-      p
-        a(href='http://fly.layui.com/jie/3147/', target='_blank') 付费计划
-        a(href='http://www.layui.com/template/fly/', target='_blank') 获取Fly社区模版
-        a(href='http://fly.layui.com/jie/2461/', target='_blank') 微信公众号
-    script(src='/layui/layui.all.js')
-    script.
-      layui.cache.page = '';
-      layui.cache.user = {
-      username: '游客'
-      ,uid: -1
-      ,avatar: '/res/images/avatar/00.jpg'
-      ,experience: 83
-      ,sex: '男'
-      };
-      layui.config({
-      version: "3.0.0"
-      ,base: '/res/mods/' //这里实际使用时，建议改成绝对路径
-      }).extend({
-      fly: 'index'
-      }).use('fly');
+              <button class="layui-btn layui-btn-disabled">今日已签到</button>
+              <span>获得了<cite>20</cite>飞吻</span>
+        #LAY_replyRank.fly-panel.fly-rank.fly-rank-reply
+          h3.fly-panel-title 回贴周榜
+          dl
+            // <i class="layui-icon fly-loading">&#xe63d;</i>
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+            dd
+              a(href='user/home.html')
+                img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg')
+                cite 贤心
+                i 106次回答
+        dl.fly-panel.fly-list-one
+          dt.fly-panel-title 本周热议
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          dd
+            a(href='jie/detail.html') 基于 layui 的极简社区页面模版
+            span
+              i.iconfont.icon-pinglun1
+              |  16
+          // 无数据时
+          //
+            <div class="fly-none">没有相关数据</div>
+        .fly-panel
+          .fly-panel-title
+            | 这里可作为广告区域
+          .fly-panel-main
+            a.fly-zanzhu(href='http://layim.layui.com/?from=fly', target='_blank', time-limit='2017.09.25-2099.01.01', style='background-color: #5FB878;') LayIM 3.0 - layui 旗舰之作
+        .fly-panel.fly-link
+          h3.fly-panel-title 友情链接
+          dl.fly-panel-main
+            dd
+              a(href='http://www.layui.com/', target='_blank') layui
+            dd
+            dd
+              a(href='http://layim.layui.com/', target='_blank') WebIM
+            dd
+            dd
+              a(href='http://layer.layui.com/', target='_blank') layer
+            dd
+            dd
+              a(href='http://www.layui.com/laydate/', target='_blank') layDate
+            dd
+            dd
+              a.fly-link(href='mailto:xianxin@layui-inc.com?subject=%E7%94%B3%E8%AF%B7Fly%E7%A4%BE%E5%8C%BA%E5%8F%8B%E9%93%BE') 申请友链
+            dd
+block customJs
+  script.
+    layui.cache.page = '';
+    layui.cache.user = {
+    username: '游客'
+    ,uid: -1
+    ,avatar: '/res/images/avatar/00.jpg'
+    ,experience: 83
+    ,sex: '男'
+    };
+    layui.config({
+    version: "3.0.0"
+    ,base: '/res/mods/' //这里实际使用时，建议改成绝对路径
+    }).extend({
+    fly: 'index'
+    }).use('fly');

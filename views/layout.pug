@@ -5,8 +5,35 @@ html
     meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
     title= title
     link(rel='stylesheet', href='/layui/css/layui.css')
+    link(rel='stylesheet', href='/res/css/global.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    block customStyle
   body
+    include header
     block content
+    include footer
     script(src="/layui/layui.all.js")
+    script.
+      layui.define(['layer', 'laytpl', 'form', 'element', 'upload', 'util'], function(exports){
+        var $ = layui.jquery
+        ,layer = layui.layer
+        ,laytpl = layui.laytpl
+        ,form = layui.form
+        ,element = layui.element
+        ,upload = layui.upload
+        ,util = layui.util
+        ,device = layui.device()
+
+        ,DISABLED = 'layui-btn-disabled';
+        util.fixbar({
+          // bar1: '&#xe642;'
+          bgcolor: '#d42222'
+          // ,click: function(type){
+          //   if(type === 'bar1'){
+          //     layer.msg('打开 index.js，开启发表新帖的路径');
+          //     //location.href = 'jie/add.html';
+          //   }
+          // }
+        });
+      });
     block customJs
