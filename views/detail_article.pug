@@ -1,0 +1,23 @@
+extends layout
+block content
+  .layui-container
+    .layui-row.layui-col-space15
+      .layui-col-md8.content.detail
+        .fly-panel.detail-box
+          h1= article.title
+          .detail-body.photos!= article.content
+      .layui-col-md4
+        .fly-panel
+          h3.fly-panel-title 推荐
+          ul.fly-panel-main.fly-list-static
+            each v,i in top
+              li
+                a(href='http://fly.layui.com/jie/4281/', target='_blank')= v.title
+        dl.fly-panel.fly-list-one
+          dt.fly-panel-title 本周热点
+          each v,i in hot
+            dd
+              a(href='jie/detail.html')= v.title
+              span.pull-right
+                i.layui-icon.layui-icon-read
+                |  16

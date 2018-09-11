@@ -1,0 +1,122 @@
+extends layout
+block content
+  .layui-container(style="margin: 10px auto 0 auto;")
+    .layui-tab.layui-tab-brief(style="margin: 0;")
+      ul.layui-tab-title
+        each v,i in cols
+          if v.class == col_class
+            li.layui-this
+              a(href="/wx?class="+v.class)= v.title
+          else
+            li
+              a(href="/wx?class="+v.class)= v.title
+        li.pull-right
+            a(href="#") 我的收藏
+    //- each v,i in new Array(8)
+    //-   button.layui-btn.layui-btn-normal 默认按钮
+    //- button.layui-btn.layui-btn-primary.pull-right 我的收藏
+    //- button.layui-btn.layui-btn-primary.pull-right 我的历史
+  .layui-container
+    .layui-row.layui-col-space15
+      .layui-col-md8
+        .fly-panel
+          .fly-panel-title.fly-filter 置顶
+          ul.fly-list
+            each v,i in top
+              li
+                a.fly-avatar(href='user/home.html')
+                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+                h2
+                  a.layui-badge 动态
+                  a(href='jie/detail.html')= v.title
+                .fly-list-abstract
+                  p 基于 layui 的极简社区页面模版基于 layui 的极简社区页面模版,基于 layui 的极简社区页面模版,基于 layui 的极简社区页面模版基于 layui 的极简社区页面模版
+                .fly-list-info
+                  a(href='user/home.html', link='')
+                    cite 贤心
+                    i.iconfont.icon-renzheng(title='认证信息：XXX')
+                    i.layui-badge.fly-badge-vip 优质
+                  span 2018-09-12
+                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                    i.layui-icon.layui-icon-praise
+                    |  60
+                  span.layui-badge.fly-badge-accept.layui-hide-xs 已结
+                  span.fly-list-nums
+                    i.layui-icon.layui-icon-read(title='回答')
+                    |  66
+                //- .fly-list-badge
+                //-     <span class="layui-badge layui-bg-black">置顶</span>
+                //-     <span class="layui-badge layui-bg-red">精帖</span>
+        .fly-panel(style='margin-bottom: 0;')
+          .fly-panel-title.fly-filter
+            | 综合
+            span.fly-filter-right.layui-hide-xs
+              a.layui-this(href='') 按最新
+              span.fly-mid
+              a(href='') 按热议
+          ul.fly-list
+            each v,i in list
+              li
+                a.fly-avatar(href='user/home.html')
+                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+                h2
+                  a.layui-badge 动态
+                  a(href='jie/detail.html')= v.title
+                .fly-list-abstract
+                  p 基于 layui 的极简社区页面模版基于 layui 的极简社区页面模版,基于 layui 的极简社区页面模版,基于 layui 的极简社区页面模版基于 layui 的极简社区页面模版
+                .fly-list-info
+                  a(href='user/home.html', link='')
+                    cite 贤心
+                    i.iconfont.icon-renzheng(title='认证信息：XXX')
+                    i.layui-badge.fly-badge-vip 优质
+                  span 2018-09-12
+                  span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
+                    i.layui-icon.layui-icon-praise
+                    |  60
+                  span.layui-badge.fly-badge-accept.layui-hide-xs 已结
+                  span.fly-list-nums
+                    i.layui-icon.layui-icon-read(title='回答')
+                    |  66
+                //- .fly-list-badge
+                //-     <span class="layui-badge layui-bg-black">置顶</span>
+                //-     <span class="layui-badge layui-bg-red">精帖</span>
+          div(style='text-align: center')
+            #test1
+      .layui-col-md4
+        .fly-panel
+          h3.fly-panel-title 推荐
+          ul.fly-panel-main.fly-list-static
+            each v,i in recommend
+              li
+                a(href='http://fly.layui.com/jie/4281/', target='_blank')= v.title
+        dl.fly-panel.fly-list-one
+          dt.fly-panel-title 本周热点
+          each v,i in last
+            dd
+              a(href='jie/detail.html')= v.title
+              span.pull-right
+                i.layui-icon.layui-icon-read
+                |  16
+block customJs
+  script.
+    layui.cache.page = '';
+    layui.cache.user = {
+    username: '游客'
+    ,uid: -1
+    ,avatar: '/res/images/avatar/00.jpg'
+    ,experience: 83
+    ,sex: '男'
+    };
+    layui.use('laypage', function(){
+      var laypage = layui.laypage;
+      laypage.render({
+        elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+        ,count: 200 //数据总数，从服务端得到
+        ,curr: parseInt('#{curr}')
+        ,jump: function(obj, first){
+          if(!first){
+            window.location.href= `/wx?page=${obj.curr}&limit=${obj.limit}&class=#{col_class}`
+          }
+        }
+      });
+    });

@@ -7,6 +7,14 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var jzwRouter = require('./routes/jzw');
 var hlwRouter = require('./routes/hlw');
+var wxRouter = require('./routes/wx');
+var siteRouter = require('./routes/site');
+var resourceRouter = require('./routes/resource');
+var specialRouter = require('./routes/special');
+var surroundRouter = require('./routes/surround');
+var videoRouter = require('./routes/video');
+var dataRouter = require('./routes/data');
+var toolRouter = require('./routes/tool');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -24,6 +32,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/jzw', jzwRouter);
 app.use('/hlw', hlwRouter);
+app.use('/wx', wxRouter);
+app.use('/site', siteRouter);
+app.use('/resource', resourceRouter);
+app.use('/special', specialRouter);
+app.use('/surround', surroundRouter);
+app.use('/video', videoRouter);
+app.use('/data', dataRouter);
+app.use('/tool', toolRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

@@ -1,0 +1,20 @@
+extends layout
+block customStyle
+  link(href='/videojs/video-js.min.css', rel='stylesheet')
+  script(src='/videojs/video.min.js')
+block content
+  .layui-container(style="margin: 30px auto;")
+    .layui-row
+        .layui-col-md12
+          h1(style="text-align:center;margin-bottom:20px;") fdsfsdffsdf
+          video#my-player.video-js
+            source(src='//vjs.zencdn.net/v/oceans.mp4', type='video/mp4')
+            source(src='//vjs.zencdn.net/v/oceans.webm', type='video/webm')
+  script.
+    videojs('my-player', {
+      controls: true,
+      autoplay: true,
+      poster: '/images/top.jpg',
+      preload: 'auto',
+      fluid:true
+    });

@@ -5,40 +5,39 @@ block content
     .jrtt
       .toutiao
       h2
-        a(href="/news/world/475.html" title="阿联酋禁止突尼斯女性登机 突政府采取反击措施") 阿联酋禁止突尼斯女性登机 突政府采取反击措施应对危机
+        a(href="/news/world/475.html")= toparticles[0].title.substring(0,28)
       ul
-        each val, index in new Array(3)
+        each v, i in toparticles.slice(1,-1)
           li
-            a(href="/kuaixun/redian/419.html") 《绝地求生》Xbox版抢先测试体
+            a(href="/kuaixun/redian/419.html")= v.title.substring(0,15)
   .layui-container
     .layui-row.layui-col-space10
       .layui-col-md3
-        .col-box
+        .col-box(style="height: 430px;")
           .col-box-title 今日焦点 / Focus
           h1
-            a(href="#") 传递信心擘画蓝图——与会工商界人士热
-          p 9月3日，二十国集团工商峰会在浙江杭州开幕。新华社记者黄宗治摄“在杭州点击鼠标，联通的是整个世界。”9……
+            a(href="#")= miltoparticles[0].title
+          p= miltoparticles[0].abstract
           ul
-            each val, index in new Array(7)
+            each v, i in miltoparticles.slice(1,-1)
               li
-                a(href="#") 新华社记者黄宗治摄“在杭
+                a(href="#")= v.title
       .layui-col-md6
         #test10.layui-carousel
           div(carousel-item="")
-            .carousel-item(style="background-image:url(/images/timg.jpg);")
-              a.sub-title(href="#") dfsdfd
-            .carousel-item(style="background-image:url(/images/timg2.jpg);")
-              a.sub-title(href="#") dfsdfd23213
-          .spec-top(style="background-image:url(/images/top.jpg);")
+            each v,i in pictoparticles
+              .carousel-item(style="background-image:url(/images/timg.jpg);")
+                a.sub-title(href="#")= v.title
+          a.spec-top(href="#", style="background-image:url(/images/ji.png);")
       .layui-col-md3
-        .col-box-2
+        .col-box-2(style="height: 430px;")
           .col-box-title-2 互联网集萃
           ul
-            each val, index in new Array(5)
+            each v,i in wxtoparticles
               li
                 a(href="#")
                   img(src="/images/timg.jpg")
-                a.news-title(href="#") 二十国集团工商峰会在浙江杭州开幕
+                a.news-title(href="#")= v.title.substring(0,19)
   .layui-container(style="margin-top:10px;")
     .layui-row.layui-col-space10
       .layui-col-md8
@@ -48,11 +47,11 @@ block content
               each val, index in new Array(5)
                 a(href="#") 总部门户
           .layui-row.layui-col-space20(style="margin: 10px 0 0 0;")
-            each val, index in new Array(8)
+            each v, i in topwebsites
               .layui-col-md3
-                .website
+                a.website(href="#")
                   .thumb(style="background-image:url(/images/timg.jpg)")
-                  .website-name 门户
+                  .website-name= v.title
         img(src="/images/top.jpg" style="margin:10px 0;width:100%;height:120px;")
         .col-box
           .col-box-title 门户网站推荐
@@ -68,7 +67,7 @@ block content
       .layui-col-md4
         .col-box-2
           .col-box-title-2 专题快报
-          img(src="/images/top.jpg" style="width:100%")
+          img(src="/images/iw.png" style="width:100%")
           .spec-right
             h3
               a(href="/keji/shuma/1442.html") 解放军39集团军战斗力堪比百万朝鲜军
@@ -103,7 +102,7 @@ block content
               span.pull-right
                 each val, index in new Array(5)
                   a(href="#") 总部门户
-            .layui-row.tools
+            .layui-row.layui-col-space20.tools
               each val, index in new Array(12)
                 .layui-col-md2
                   a(href="#")
@@ -111,7 +110,7 @@ block content
                     .tool
                       span
                         strong 工具
-                      p 适用于多发点撒的
+                      p 适用于多发点撒的fdsffdsf
 block customJs
   script.
     layui.use(['carousel', 'form'], function(){

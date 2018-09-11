@@ -224,6 +224,7 @@ a {
   line-height: 30px;
 }
 .spec-top {
+  display: block;
   background-size: cover;
   background-position: center;
   height:83px;
@@ -243,12 +244,14 @@ a {
   background-size: cover;
   background-position: center;
   height: 200px;
-  border: 5px #eee solid;
+  border: 5px #fff solid;
 }
 .website-name {
   text-align: center;
   line-height: 2.5em;
-  background: #eee;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .spec-right h3 {
   line-height: 30px;
@@ -313,7 +316,7 @@ a {
   text-align: center;
 }
 .shortcuts {
-  padding-top:10px;
+  padding-top:0px;
 }
 .shortcuts span{
   display:block;
@@ -322,7 +325,7 @@ a {
   display: inline-block;
   width:25%;
   text-align: center;
-  opacity: 0.4;
+  opacity: 0.8;
   font-size: 12px;
   font-weight: 700;
 }
@@ -330,7 +333,7 @@ a {
   opacity: 0.9;
 }
 .shortcuts img{
-  width:50%;
+  width:70%;
 }
 .tools {
   margin: 20px 0;
@@ -361,4 +364,90 @@ a {
 .tool p {
   font-size: 13px;
   padding:0 0 0 5px;
+}
+.layui-btn-caowei1 {
+  border: 1px solid #4b0d9b;
+  background-color: #fff;
+  color: #4b0d9b;
+}
+.video.layui-card {
+  display: block;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.3);
+}
+.layui-nav-tree.site .layui-nav-child dd.layui-this, .layui-nav-tree.site .layui-nav-child dd.layui-this a, .layui-nav-tree.site .layui-this, .layui-nav-tree.site .layui-this>a, .layui-nav-tree.site .layui-this>a:hover {
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+}
+.layui-nav-tree.site .layui-nav-item a:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+.layui-nav-tree.site .layui-nav-bar {
+  background-color: #e60012;
+}
+.site-card {
+  height: 3em;
+  display: block;
+  text-align:center;
+  line-height: 3em;
+}
+.site-card:hover {
+  background: #e60012;
+  color:#fff;
+}
+.layui-bg-red.site {
+  background-color: #d42222!important;
+}
+.site-card {
+  border: 1px #ececec solid;
+  border-width: 0 1px 1px 0;
+}
+.site-cards:nth-child(6n) .site-card {
+  border-width: 0 0 1px 0;
+}
+.site-cards:nth-last-child(2) .site-card,.site-cards:nth-last-child(3) .site-card,.site-cards:nth-last-child(4) .site-card,.site-cards:nth-last-child(5) .site-card,.site-cards:nth-last-child(6) .site-card {
+  border-width: 0 1px 0 0;
+}
+.site-cards:nth-last-child(1) .site-card{
+  border-width: 0;
+}
+.layui-tab-content.tool-list {
+  min-height:500px;
+}
+.site-tree .layui-tree li h2 {
+  line-height: 36px;
+  border-left: 5px solid #d42222;
+  margin: 15px 0 5px;
+  padding: 0 10px;
+  background-color: #f2f2f2;
+  font-size: 14px;
+}
+.site-tree {
+  border-right: 1px solid #eee;
+}
+
+.site-tree {
+  width: 220px;
+  min-height: 900px;
+  padding: 5px 0 20px;
+}
+.site-tree .layui-tree .site-tree-noicon a cite {
+  padding-left: 15px;
+}
+.site-tree .layui-tree li a em {
+  font-size: 12px;
+  color: #bbb;
+  padding-right: 5px;
+  font-style: normal;
+}
+.site-content {
+  width: 899px;
+  min-height: 900px;
+  padding: 20px 0 10px 20px;
+}
+.site-tree, .site-content {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
 }

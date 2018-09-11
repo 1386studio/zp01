@@ -1,0 +1,105 @@
+extends layout
+block content
+  .layui-container.site-inline.site-fix(style="margin: 10px auto;min-height:1000px;")
+    .site-tree
+      ul.layui-tree
+        li
+          h2 基础说明
+        li.site-tree-noicon
+          a(href='/doc/')
+            cite 开始使用
+            em Getting Started
+        li.site-tree-noicon
+          a(href='/doc/base/infrastructure.html')
+            cite 底层方法
+            em 基础支撑
+        li.site-tree-noicon
+          a(href='/doc/base/element.html')
+            cite 页面元素
+            em 规范 / 公共类 / 属性
+        li.site-tree-noicon
+          a(href='/doc/base/modules.html')
+            cite 模块规范
+            em 使用 / 扩展
+        li.site-tree-noicon
+          a(href='/doc/base/faq.html')
+            cite 常见问题
+            em FAQ
+        li.site-tree-noicon
+          a(href='/doc/base/changelog.html')
+            cite 更新日志
+            span.layui-badge-dot(style='position: relative; top: -3px; left: -3px;')
+        li
+          h2 页面元素
+        li.site-tree-noicon
+          a(href='/doc/element/layout.html')
+            cite 布局
+            em 栅格 / 后台布局
+        li.site-tree-noicon
+          a(href='/doc/element/color.html')
+            cite 颜色
+            em 主题色设计感 / 内置背景色
+        li.site-tree-noicon
+          a(href='/doc/element/icon.html')
+            cite 图标
+            em 字体图标
+        li.site-tree-noicon
+          a(href='/doc/element/anim.html')
+            cite 动画
+            em 内置的CSS3动画类
+        li.site-tree-noicon
+          a(href='/doc/element/button.html')
+            cite 按钮
+            em button组
+        li.site-tree-noicon
+          a(href='/doc/element/form.html')
+            cite 表单
+            em form元素集合
+        li.site-tree-noicon
+          a(href='/doc/element/nav.html')
+            cite 导航
+            em 菜单 / 面包屑
+        li.site-tree-noicon
+          a(href='/doc/element/tab.html')
+            cite 选项卡
+            em Tabs 切换
+        li.site-tree-noicon
+          a(href='/doc/element/progress.html')
+            cite 进度条
+            em progress
+        li.site-tree-noicon
+          a(href='/doc/element/panel.html')
+            cite 面板
+            em 折叠 / 手风琴
+        li.site-tree-noicon
+          a(href='/doc/element/table.html')
+            cite 表格
+            em 静态table
+        li.site-tree-noicon
+          a(href='/doc/element/badge.html')
+            cite 徽章
+            em 小圆点 / 小边框
+        li.site-tree-noicon
+          a(href='/doc/element/timeline.html')
+            cite 时间线
+            em timeline
+        li.site-tree-noicon
+          a(href='/doc/element/auxiliar.html')
+            cite 辅助
+            em 引用 / 字段集 / 横线等
+
+    .site-content
+      .col-box
+            .col-box-title 优秀站点推荐
+            .layui-row(style="margin:10px 0;")
+              each v,i in new Array(6)
+                .layui-col-md2.site-cards
+                  a.website(href="#")
+                    .thumb(style="background-image:url(/images/timg.jpg)")
+                    .website-name 门户
+      .col-box(style="margin-top:10px;")
+            .col-box-title 全部网站列表
+            .layui-row(style="margin:10px 0;")
+              each v,i in new Array(30)
+                .layui-col-md2.site-cards
+                  a(href="#").site-card gfdg

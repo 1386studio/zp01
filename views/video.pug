@@ -1,0 +1,49 @@
+extends layout
+block customStyle
+  link(href='/rvslider/css/rvslider.min.css', rel='stylesheet')
+block content
+  .layui-container(style="margin: 10px auto 20px auto;")
+    .rvs-container
+      .rvs-item-container
+        .rvs-item-stage
+          // The below is a single item, simply duplicate this layout for each item
+          .rvs-item(style='background-image: url(/images/top.jpg)')
+            p.rvs-item-text
+              | VIDEO_TITLE 
+              small by VIDEO_CREDITS
+            a.rvs-play-video(href='/videos/1.mp4')
+      .rvs-nav-container
+        a.rvs-nav-prev
+        .rvs-nav-stage
+          // The below is the corresponding nav item for the single item, simply duplicate this layout for each item
+          a.rvs-nav-item
+            span.rvs-nav-item-thumb(style='background-image: url(/images/top.jpg)')
+            h4.rvs-nav-item-title VIDEO_TITLE
+            small.rvs-nav-item-credits by VIDEO_CREDITS
+        a.rvs-nav-next
+  .layui-container(style="margin: 10px auto 0 auto;")
+    .layui-tab.layui-tab-brief(style="margin: 0;")
+      ul.layui-tab-title
+        each v,i in cols
+          if v.class == col_class
+            li.layui-this
+              a(href="/jzw?class="+v.class)= v.title
+          else
+            li
+              a(href="/jzw?class="+v.class)= v.title
+        li.pull-right
+            a(href="#") 我的收藏
+  .layui-container(style="margin: 10px auto;")
+    .layui-row.layui-col-space20(style="margin-bottom:0px;")
+      each v,i in new Array(8)
+        .layui-col-md3
+          a.layui-card.video(href="/detail_video")
+            img(src="/images/top.jpg" style="width:100%;height:200px;")
+            h3(style="padding: 7px 10px 10px 10px;") 发射点十分
+block customJs
+  script(src="/javascripts/jquery.min.js")
+  script(src='/rvslider/js/rvslider.min.js')
+  script.
+    jQuery(function($){
+        $('.rvs-container').rvslider();
+      });

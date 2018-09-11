@@ -1,0 +1,35 @@
+extends layout
+block content
+  div(style="position:relative;height: 120px;overflow: hidden;")
+    div(style="filter: blur(0.2rem);background:url(/images/timg.jpg);background-size:cover;background-position:center;height:160px;position: absolute;width: 110%;margin-top:-20px;margin-left:-20px;")
+    div(style="height:120px;position: absolute;top: 0;width: 100%;text-align:center")
+      span(style="letter-spacing:10px;line-height:120px;font-size:3em;font-weight:700;color:#fff;text-shadow:2px 2px 2px rgba(0,0,0,0.4);")= name
+  .layui-container(style="margin: 10px auto;")
+    .layui-row
+      .layui-col-12
+        blockquote.layui-elem-quote.layui-quote-nm
+          | 猿强，则国强。国强，则猿更强！ 
+          br
+          | ——孟子（好囖。。其实这特喵的是我说的）
+  .layui-container(style="margin: 10px auto;")
+    .layui-row.layui-col-space10
+      .layui-col-md6
+        .col-box(style="height: 430px;")
+          .col-box-title 今日焦点 / Focus
+          h1
+            a(href="#")= miltoparticles[0].title
+          p= miltoparticles[0].abstract
+          ul
+            each v, i in miltoparticles.slice(1,-1)
+              li
+                a(href="#")= v.title
+      .layui-col-md6
+        .col-box(style="height: 430px;")
+          .col-box-title 今日焦点 / Focus
+          h1
+            a(href="#")= miltoparticles[0].title
+          p= miltoparticles[0].abstract
+          ul
+            each v, i in miltoparticles.slice(1,-1)
+              li
+                a(href="#")= v.title
