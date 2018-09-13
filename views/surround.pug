@@ -1,72 +1,36 @@
 extends layout
 block content
-  div(style="position:relative;height: 120px;overflow: hidden;")
-    div(style="filter: blur(0.5rem);background:url(/images/timg2.jpg);background-size:cover;background-position:center;height:160px;position: absolute;width: 110%;margin-top:-20px;margin-left:-20px;")
-    div(style="height:120px;position: absolute;top: 0;width: 100%;text-align:center")
-      span(style="letter-spacing:10px;line-height:120px;font-size:3em;font-weight:700;color:#fff;text-shadow:2px 2px 2px rgba(0,0,0,0.4);")= name
+  //- div(style="position:relative;height: 150px;overflow: hidden;")
+  //-   div(style="filter: blur(3px);background:url(/images/"+name+".jpg);background-size:cover;background-position:center;height:180px;position: absolute;width: 110%;margin-top:-20px;margin-left:-20px;")
+  //-   div(style="height:150px;position: absolute;top: 0;width: 100%;text-align:center")
+  //-     span(style="letter-spacing:10px;line-height:150px;font-size:3em;font-weight:700;color:#fff;text-shadow:2px 2px 10px rgba(0,0,0,0.8);")= name
+  div(style="position:relative;height: 500px;background:url(/images/map-1.jpg);background-size:cover;background-position:center;")
   .layui-container(style="margin: 10px auto;")
     .layui-row.layui-col-space10
       .layui-col-md8
-        img(src="/images/map-1.jpg", alt="", srcset="", style="width:100%")
+        .layui-row.layui-col-space10
+          each v,i in cols
+            .layui-col-md6
+              .col-box(style="height: 430px;")
+                .col-box-title= v.column
+                //- h1
+                //-   a(href="#")= v.speicalarticles[0].title
+                //- p= v.speicalarticles[0].title
+                ul
+                  each w, j in v.speicalarticles
+                    li
+                      a(href="#")= w.title
       .layui-col-md4
         ul.layui-timeline
+          each v,i in timeline
+            li.layui-timeline-item
+              i.layui-icon.layui-timeline-axis 
+              .layui-timeline-content
+                h3.layui-timeline-title= v.publish_date
+                each w,j in v.speicalarticles
+                  p
+                    a(href="/surround/detail?_id="+w._id)= w.title
           li.layui-timeline-item
             i.layui-icon.layui-timeline-axis 
-            .layui-timeline-content.layui-text
-              h3.layui-timeline-title 8月18日
-              p
-                | layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
-                br
-                | 不枉近百个日日夜夜与之为伴。因小而大，因弱而强。
-                br
-                | 无论它能走多远，抑或如何支撑？至少我曾倾注全心，无怨无悔 
-                i.layui-icon 
-          li.layui-timeline-item
-            i.layui-icon.layui-timeline-axis 
-            .layui-timeline-content.layui-text
-              h3.layui-timeline-title 8月16日
-              p
-                | 杜甫的思想核心是儒家的仁政思想，他有“
-                em 致君尧舜上，再使风俗淳
-                | ”的宏伟抱负。个人最爱的名篇有：
-              ul
-                li 《登高》
-                li 《茅屋为秋风所破歌》
-          li.layui-timeline-item
-            i.layui-icon.layui-timeline-axis 
-            .layui-timeline-content.layui-text
-              h3.layui-timeline-title 8月15日
-              p
-                | 中国人民抗日战争胜利72周年
-                br
-                | 铭记、感恩
-                br
-                | 所有为中华民族浴血奋战的英雄将士
-                br
-                | 永垂不朽
-          li.layui-timeline-item
-            i.layui-icon.layui-timeline-axis 
-            .layui-timeline-content.layui-text
-              .layui-timeline-title 过去
-  .layui-container(style="margin: 10px auto;")
-    .layui-row.layui-col-space10
-      .layui-col-md6
-        .col-box(style="height: 430px;")
-          .col-box-title 今日焦点 / Focus
-          h1
-            a(href="#")= miltoparticles[0].title
-          p= miltoparticles[0].abstract
-          ul
-            each v, i in miltoparticles.slice(1,-1)
-              li
-                a(href="#")= v.title
-      .layui-col-md6
-        .col-box(style="height: 430px;")
-          .col-box-title 今日焦点 / Focus
-          h1
-            a(href="#")= miltoparticles[0].title
-          p= miltoparticles[0].abstract
-          ul
-            each v, i in miltoparticles.slice(1,-1)
-              li
-                a(href="#")= v.title
+            .layui-timeline-content
+              .layui-timeline-title 更多...

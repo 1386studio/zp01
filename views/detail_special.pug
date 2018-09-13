@@ -1,0 +1,8 @@
+extends layout
+block content
+  .layui-container
+    .layui-row.layui-col-space15
+      .layui-col-md12.content.detail
+        .fly-panel.detail-box
+          h1= article.title
+          .detail-body.photos!= article.specialcontent.content

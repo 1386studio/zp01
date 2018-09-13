@@ -451,3 +451,13 @@ a {
   vertical-align: top;
   font-size: 14px;
 }
+.layui-timeline-content p {
+  line-height: 2em;
+}
+.layui-timeline-content a {
+  color:#666;
+}
+.layui-timeline-content a:hover {
+  color:#e60012;
+  text-decoration: none;
+}

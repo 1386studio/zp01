@@ -24,19 +24,19 @@ block content
           ul.fly-list
             each v,i in top
               li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+                a.fly-avatar(href= "/hlw/detail?_id="+v._id)
+                  img(src= v.cover_file, alt='贤心')
                 h2
                   a.layui-badge 动态
-                  a(href='jie/detail.html')= v.title
+                  a(href= "/hlw/detail?_id="+v._id)= v.title
                 .fly-list-abstract
-                  p 基于 layui 的极简社区页面模版基于 layui 的极简社区页面模版,基于 layui 的极简社区页面模版,基于 layui 的极简社区页面模版基于 layui 的极简社区页面模版
+                  p= v.abstract
                 .fly-list-info
                   a(href='user/home.html', link='')
-                    cite 贤心
+                    cite= v.author
                     i.iconfont.icon-renzheng(title='认证信息：XXX')
                     i.layui-badge.fly-badge-vip 优质
-                  span 2018-09-12
+                  span= v.publish_time
                   span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
                     i.layui-icon.layui-icon-praise
                     |  60
@@ -57,19 +57,19 @@ block content
           ul.fly-list
             each v,i in list
               li
-                a.fly-avatar(href='user/home.html')
-                  img(src='https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg', alt='贤心')
+                a.fly-avatar(href= "/wx/detail?_id="+v._id)
+                  img(src= v.cover_file, alt='贤心')
                 h2
                   a.layui-badge 动态
-                  a(href='jie/detail.html')= v.title
+                  a(href= "/wx/detail?_id="+v._id)= v.title
                 .fly-list-abstract
-                  p 基于 layui 的极简社区页面模版基于 layui 的极简社区页面模版,基于 layui 的极简社区页面模版,基于 layui 的极简社区页面模版基于 layui 的极简社区页面模版
+                  p= v.abstract
                 .fly-list-info
                   a(href='user/home.html', link='')
-                    cite 贤心
+                    cite= v.author
                     i.iconfont.icon-renzheng(title='认证信息：XXX')
                     i.layui-badge.fly-badge-vip 优质
-                  span 2018-09-12
+                  span= v.publish_time
                   span.fly-list-kiss.layui-hide-xs(title='悬赏飞吻')
                     i.layui-icon.layui-icon-praise
                     |  60

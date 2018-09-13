@@ -1,0 +1,13 @@
+extends layout
+block content
+  .layui-container(style="margin: 10px auto;")
+    .layui-row
+      .layui-col-md6.layui-col-md-offset3
+        form.layui-form(action='')
+          .layui-form-item
+            label.layui-form-label HTTP://
+            .layui-input-block
+              input.layui-input(type='text', name='title', required='', lay-verify='required', placeholder='请输入URL', autocomplete='off')
+            button.layui-btn.layui-btn-primary 开始
+
+

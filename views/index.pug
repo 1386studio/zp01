@@ -44,8 +44,8 @@ block content
         .col-box
           .col-box-title 门户网站推荐
             span.pull-right
-              each val, index in new Array(5)
-                a(href="#") 总部门户
+              each v, i in new Array(5)
+                a(href="#") 二
           .layui-row.layui-col-space20(style="margin: 10px 0 0 0;")
             each v, i in topwebsites
               .layui-col-md3
@@ -54,16 +54,16 @@ block content
                   .website-name= v.title
         img(src="/images/top.jpg" style="margin:10px 0;width:100%;height:120px;")
         .col-box
-          .col-box-title 门户网站推荐
+          .col-box-title 业务系统推荐
             span.pull-right
-              each val, index in new Array(5)
-                a(href="#") 总部门户
+              each v, i in appwebsites
+                a(href="#")= v.title
           .layui-row.layui-col-space20(style="margin: 10px 0 0 0;")
-            each val, index in new Array(8)
+            each v, i in appwebsites
               .layui-col-md3
                 .website
                   .thumb(style="background-image:url(/images/timg.jpg)")
-                  .website-name 门户
+                  .website-name= v.title
       .layui-col-md4
         .col-box-2
           .col-box-title-2 专题快报
